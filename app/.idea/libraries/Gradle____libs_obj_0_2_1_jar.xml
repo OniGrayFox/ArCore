@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: ./libs/obj-0.2.1.jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/obj-0.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

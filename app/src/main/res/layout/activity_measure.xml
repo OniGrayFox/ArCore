@@ -1,0 +1,134 @@
+<!--
+   Copyright 2016 Google Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tv_result_label">
+
+    </FrameLayout>
+
+    <android.opengl.GLSurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top" />
+
+    <!-- for test -->
+    <!--<com.hl3hl3.arcoremeasure.OverlayView-->
+    <!--android:id="@+id/overlay_for_test"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_alignBottom="@+id/fl_content"-->
+    <!--android:layout_alignLeft="@+id/fl_content"-->
+    <!--android:layout_alignRight="@+id/fl_content"-->
+    <!--android:layout_alignTop="@+id/fl_content" />-->
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="#ffffff"
+        android:padding="15dp"
+        android:paddingBottom="15dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:text="123" />
+
+    <Button
+        android:id="@+id/button"
+        style="@android:style/Widget.DeviceDefault.Button"
+        android:layout_width="103dp"
+        android:layout_height="44dp"
+        android:layout_above="@id/tv_result"
+        android:layout_alignRight="@+id/tv_result"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="-100dp"
+        android:layout_marginBottom="18dp"
+        android:alpha="100"
+        android:background="@drawable/button_set"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:text="Добавить"
+        android:textColor="#FFFFFF"
+        android:visibility="visible"
+        tools:ignore="NotSibling" />
+
+    <Button
+        android:id="@+id/cancel"
+        style="@android:style/Widget.DeviceDefault.Button"
+        android:layout_width="105dp"
+        android:layout_height="44dp"
+        android:layout_above="@id/tv_result"
+        android:layout_alignRight="@+id/tv_result"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="130dp"
+        android:layout_marginRight="102dp"
+        android:layout_marginBottom="18dp"
+        android:alpha="100"
+        android:background="@drawable/button_reset"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:text="Сброс"
+
+        android:textColor="#f04141"
+        android:visibility="visible"
+        tools:ignore="NotSibling" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:height="50dp"
+        android:background="#FFFFFF"
+        android:gravity="left"
+        android:paddingLeft="15dp"
+        android:paddingBottom="3dp"
+        android:text="1. Дождитесь, когда камера определит плоскость потолка"
+        android:textColor="#000000"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:background="#FFFFFF"
+        android:gravity="left"
+        android:paddingLeft="15dp"
+        android:paddingBottom="3dp"
+        android:text="2. Укажите начало и конец отрезка, нажав на экран."
+        android:textColor="#000000"
+        android:textSize="18dp" />
+
+</RelativeLayout>

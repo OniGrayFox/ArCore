@@ -1,0 +1,95 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: "kotlin-android-extensions"
+//apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+
+android {
+    compileSdkVersion 31
+    defaultConfig {
+        applicationId 'com.hl3hl3.arcoremeasure'
+        //applicationId 'com.hl3hl3.arcoremeasure'
+        // 24 is the minimum since ARCore only works with 24 and higher.
+        minSdkVersion 24
+        targetSdkVersion 31
+        versionCode 14
+        versionName "1.4.8"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+    
+    buildTypes {
+        debug {
+            minifyEnabled true
+            firebaseCrashlytics {
+                // If you don't need crash reporting for your debug build,
+                // you can speed up your build by disabling mapping file uploading.
+                mappingFileUploadEnabled false
+            }
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // When minifyEnabled is set to true, Crashlytics automatically
+            // uploads mapping files because the plugin detects that obfuscation
+            // is enabled. mappingFileUploadEnabled defaults to true if
+            // minifyEnabled is true.
+        }
+
+        lintOptions {
+            abortOnError false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures{
+        viewBinding true
+    }
+    productFlavors {
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    testImplementation 'junit:junit:4.12'
+    // ARCore library
+    implementation 'com.google.ar:core:1.0.0'
+    // Obj - a simple Wavefront OBJ file loader
+    // https://github.com/javagl/Obj
+
+    implementation 'de.javagl:obj:0.2.1'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    // https://firebase.google.com/docs/crashlytics/upgrade-sdk?platform=android
+    implementation 'com.google.firebase:firebase-crashlytics:17.3.1'
+    implementation platform('com.google.firebase:firebase-bom:26.5.0')
+    implementation 'com.google.firebase:firebase-analytics:18.0.2'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.5.0"
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:25.3.1'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:mediarouter-v7:25.3.1'
+//    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+//        transitive = true;
+//    }
+}
+repositories {
+    mavenCentral()
+}
